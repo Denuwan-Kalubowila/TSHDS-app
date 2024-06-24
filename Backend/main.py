@@ -1,12 +1,5 @@
 from fastapi import FastAPI
+from routers.user_routes import user_router
 
 app=FastAPI()
-
-
-@app.get('/')
-async def root():
-    return {"massage" : "hello"}
-
-@app.get('/item/{item_id}')
-async def root_item(item_id:int):
-    return {"massage" :item_id}
+app.include_router(user_router)
